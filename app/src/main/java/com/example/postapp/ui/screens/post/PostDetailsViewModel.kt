@@ -9,7 +9,6 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.postapp.PostApplication
 import com.example.postapp.data.AppRepository
 import com.example.postapp.model.Post
-import com.example.postapp.ui.screens.home.HomeViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

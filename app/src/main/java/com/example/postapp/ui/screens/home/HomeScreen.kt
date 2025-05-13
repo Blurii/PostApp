@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -74,6 +74,10 @@ fun PostItem(post: Post, user: User?, navController: NavController) {
                 }
             )
         }
-        Divider(modifier = Modifier.padding(top = 8.dp))
+        HorizontalDivider(
+            modifier = Modifier.padding(top = 8.dp),
+            thickness = 1.dp,
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f)
+        )
     }
 }

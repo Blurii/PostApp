@@ -5,7 +5,7 @@
 * [Problemy](#problemy)
 * [Technologie](#technologie)
 ## Informacje ogólne
-  Aplikacja mobilna oparta na Jetpack Compose, umożliwiająca przeglądanie postów, użytkowników oraz szczegółów zadania. Dane są pobierane z API: https://jsonplaceholder.typicode.com
+  Aplikacja mobilna oparta na Jetpack Compose, umożliwiająca przeglądanie postów, szczegółów postów, szczegółów autorów posta i ich zadania. Dane są pobierane z API: https://jsonplaceholder.typicode.com
 ## Funkcjonalności
 ### Ekran Główny - Lista Postów z Użytkownikami
 <ul>
@@ -15,7 +15,7 @@
   <li>Kliknięcie autora → przejście do szczegółów użytkownika.</li>
 </ul>
 GIF działania:<br/>
-![home-gif](https://github.com/user-attachments/assets/c2fa0438-db60-4c51-864a-fc3093c58359)
+<img src="https://github.com/Blurii/PostApp/blob/master/gif-directory/home-gif.gif?raw=true">
 
 ### Ekran Szczegółów Posta
 <ul>
@@ -24,8 +24,7 @@ GIF działania:<br/>
   <li>Możliwość powrotu do ekranu głównego.</li>
 </ul>
 GIF działania: <br/>
-![PostApp](/gif-directory/home-gif.gif)
-
+<img src="https://github.com/Blurii/PostApp/blob/master/gif-directory/post-gif.gif?raw=true">
 
 ### Ekran Szczegółów Użytkownika
 <ul>
@@ -41,16 +40,15 @@ GIF działania: <br/>
   <li>Możliwość powrotu do ekranu głównego.</li>
 </ul>
 GIF działania: 
-![User](./gif-directory/Screen_Recording_20250516_152427_PostApp.mp4.gif)<br/>
-<br/>
+<img src="https://github.com/Blurii/PostApp/blob/master/gif-directory/user-gif.gif?raw=true">
 
 ### Obsługa Stanu Ładowania i Błędów
 <ul>
   <li>CircularProgressIndicator podczas ładowania danych.</li>
-  <li>Komunikat błędu i możliwość ponowienia zapytania w przypadku błędu sieci.</li>
+  <li>Komunikat błędu w przypadku błędu sieci.</li>
 </ul>
 GIF działania: <br/>
-<br/>
+<img src="https://github.com/Blurii/PostApp/blob/master/gif-directory/loading-error-gif.gif?raw=true">
 
 ## Problemy
 <ul>

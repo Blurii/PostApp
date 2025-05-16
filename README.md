@@ -15,7 +15,7 @@
   <li>Kliknięcie autora → przejście do szczegółów użytkownika.</li>
 </ul>
 GIF działania:<br/>
-![Home](./gif-directory/Screen_Recording_20250516_152359_PostApp.mp4.gif)<br/>
+![home-gif](https://github.com/user-attachments/assets/c2fa0438-db60-4c51-864a-fc3093c58359)
 
 ### Ekran Szczegółów Posta
 <ul>
@@ -24,8 +24,7 @@ GIF działania:<br/>
   <li>Możliwość powrotu do ekranu głównego.</li>
 </ul>
 GIF działania: <br/>
-![Post](./gif-directory/Screen_Recording_20250516_152414_PostApp.mp4.gif)
-<br/>![Screen_Recording_20250516_152359_PostApp mp4](https://github.com/user-attachments/assets/085e0b00-8d07-4f9d-9d78-0e9ceb87499a)
+![PostApp](/gif-directory/home-gif.gif)
 
 
 ### Ekran Szczegółów Użytkownika

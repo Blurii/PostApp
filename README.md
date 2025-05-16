@@ -25,7 +25,8 @@ GIF działania:<br/>
 </ul>
 GIF działania: <br/>
 ![Post](./gif-directory/Screen_Recording_20250516_152414_PostApp.mp4.gif)
-<br/>
+<br/>![Screen_Recording_20250516_152359_PostApp mp4](https://github.com/user-attachments/assets/085e0b00-8d07-4f9d-9d78-0e9ceb87499a)
+
 
 ### Ekran Szczegółów Użytkownika
 <ul>

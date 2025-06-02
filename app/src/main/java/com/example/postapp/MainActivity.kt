@@ -11,14 +11,17 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.postapp.model.Home
 import com.example.postapp.model.PostDetails
+import com.example.postapp.model.Profile
 import com.example.postapp.model.UserDetails
 import com.example.postapp.ui.screens.home.HomeScreen
 import com.example.postapp.ui.screens.home.HomeViewModel
 import com.example.postapp.ui.screens.post.PostDetailsScreen
 import com.example.postapp.ui.screens.post.PostDetailsViewModel
+import com.example.postapp.ui.screens.profile.ProfileScreen
 import com.example.postapp.ui.screens.user.UserDetailsScreen
 import com.example.postapp.ui.screens.user.UserDetailsViewModel
 import com.example.postapp.ui.theme.PostAppTheme
+import com.example.postapp.ui.screens.profile.ProfileViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +52,13 @@ class MainActivity : ComponentActivity() {
                         val viewModel: UserDetailsViewModel = viewModel(factory = UserDetailsViewModel.Factory(args.userId))
                         UserDetailsScreen(
                             navigationController = navigationController,
+                            viewModel = viewModel
+                        )
+                    }
+                    composable<Profile> {
+                        val viewModel: ProfileViewModel = viewModel(factory = ProfileViewModel.Factory)
+                        ProfileScreen(
+                            navController = navigationController,
                             viewModel = viewModel
                         )
                     }

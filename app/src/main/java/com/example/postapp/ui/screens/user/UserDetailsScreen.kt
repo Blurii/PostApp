@@ -1,8 +1,10 @@
 package com.example.postapp.ui.screens.user
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -27,8 +29,15 @@ import androidx.navigation.NavController
 import androidx.compose.runtime.getValue
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.compose.GoogleMap
+import com.google.maps.android.compose.Marker
+import com.google.maps.android.compose.MarkerState
+import com.google.maps.android.compose.rememberCameraPositionState
 
 
+@SuppressLint("UnrememberedMutableState")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun UserDetailsScreen(
@@ -77,6 +86,24 @@ fun UserDetailsScreen(
                         Text("Firma: ${user.company.name}")
                         Text("Adres: ${user.address.street}, ${user.address.city} (${user.address.zipcode})")
                         Spacer(modifier = Modifier.height(16.dp))
+                        val lat = user.address.geo.lat.toDoubleOrNull() ?: 0.0
+                        val lng = user.address.geo.lng.toDoubleOrNull() ?: 0.0
+                        val userLocation = LatLng(lat, lng)
+                        val cameraPositionState = rememberCameraPositionState {
+                            position = CameraPosition.fromLatLngZoom(userLocation, 12f)
+                        }
+                        GoogleMap(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(300.dp),
+                            cameraPositionState = cameraPositionState
+                        ) {
+                            Marker(
+                                state = MarkerState(position = userLocation),
+                                title = user.name,
+                                snippet = "${user.address.street}, ${user.address.city}"
+                            )
+                        }
                         Text("Zadania:", style = MaterialTheme.typography.titleMedium)
                     }
                     items(todos) { todo ->

@@ -7,6 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 interface AppContainer {
     val repository: AppRepository
+    val userPreferencesManager: UserPreferencesManager
 }
 
 class DefaultAppContainer(context: Context) : AppContainer {
@@ -25,4 +26,8 @@ class DefaultAppContainer(context: Context) : AppContainer {
     override val repository: AppRepository by lazy {
         AppRepository(apiService)
     }
+    override val userPreferencesManager: UserPreferencesManager by lazy {
+        UserPreferencesManager(context)
+    }
+
 }

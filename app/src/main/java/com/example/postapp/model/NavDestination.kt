@@ -10,3 +10,6 @@ data class PostDetails(val postId: Int)
 
 @Serializable
 data class UserDetails(val userId: Int)
+
+@Serializable
+object Profile

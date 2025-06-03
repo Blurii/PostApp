@@ -14,6 +14,7 @@ class UserPreferencesManager(private val context: Context) {
         val FIRST_NAME_KEY = stringPreferencesKey("first_name")
         val LAST_NAME_KEY = stringPreferencesKey("last_name")
         val IMAGE_PATH_KEY = stringPreferencesKey("image_path")
+        val DARK_MODE_KEY = booleanPreferencesKey("dark_mode")
     }
 
     suspend fun saveUserDetails(firstName: String, lastName: String) {
@@ -29,7 +30,14 @@ class UserPreferencesManager(private val context: Context) {
         }
     }
 
+    suspend fun setDarkMode(enabled: Boolean) {
+        context.dataStore.edit { prefs ->
+            prefs[DARK_MODE_KEY] = enabled
+        }
+    }
+
     val userFirstName: Flow<String> = context.dataStore.data.map { it[FIRST_NAME_KEY] ?: "" }
     val userLastName: Flow<String> = context.dataStore.data.map { it[LAST_NAME_KEY] ?: "" }
     val imagePath: Flow<String> = context.dataStore.data.map { it[IMAGE_PATH_KEY] ?: "" }
+    val darkModeEnabled: Flow<Boolean> = context.dataStore.data.map { it[DARK_MODE_KEY] ?: false }
 }

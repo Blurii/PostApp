@@ -29,6 +29,13 @@ class ProfileViewModel(private val preferences: UserPreferencesManager) : ViewMo
         }
     }
 
+    fun resetProfile() {
+        viewModelScope.launch {
+            preferences.saveUserDetails("", "")
+            preferences.saveImagePath("")
+        }
+    }
+
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {

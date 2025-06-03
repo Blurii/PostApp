@@ -13,3 +13,6 @@ data class UserDetails(val userId: Int)
 
 @Serializable
 object Profile
+
+@Serializable
+object Settings

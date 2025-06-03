@@ -1,31 +1,31 @@
 package com.example.postapp.ui.screens.profile
 
 import android.net.Uri
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil3.compose.rememberAsyncImagePainter
 import com.example.postapp.data.saveImageToInternalStorage
 import java.io.File
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.foundation.gestures.detectTapGestures
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileScreen(
     navController: NavController,
-    viewModel: ProfileViewModel = viewModel(factory = ProfileViewModel.Factory)
+    viewModel: ProfileViewModel
 ) {
     val firstName by viewModel.firstName.collectAsState()
     val lastName by viewModel.lastName.collectAsState()
@@ -69,8 +69,7 @@ fun ProfileScreen(
                     painter = rememberAsyncImagePainter(File(context.filesDir, imagePath)),
                     contentDescription = null,
                     modifier = Modifier
-                        .size(120.dp)
-                        .clip(CircleShape)
+                        .size(250.dp)
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
@@ -100,6 +99,19 @@ fun ProfileScreen(
             }) {
                 Text("Zapisz dane")
             }
+            Text(
+                text = "Przytrzymaj, by zresetować",
+                modifier = Modifier
+                    .padding(top = 16.dp)
+                    .pointerInput(Unit) {
+                        detectTapGestures(
+                            onLongPress = {
+                                viewModel.resetProfile()
+                                Toast.makeText(context, "Dane zresetowane", Toast.LENGTH_SHORT).show()
+                            }
+                        )
+                    }
+            )
         }
     }
 }

@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -24,12 +25,14 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.postapp.model.Post
 import com.example.postapp.model.PostDetails
 import com.example.postapp.model.Profile
+import com.example.postapp.model.Settings
 import com.example.postapp.model.User
 import com.example.postapp.model.UserDetails
 
@@ -43,7 +46,18 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("PostApp") },
+                title = {
+                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                        Text("PostApp")
+                    }
+                },
+                navigationIcon = {
+                    IconButton(onClick = {
+                        navigationController.navigate(Settings)
+                    }) {
+                        Icon(Icons.Default.Settings, contentDescription = "Ustawienia")
+                    }
+                },
                 actions = {
                     IconButton(onClick = {
                         navigationController.navigate(Profile)
@@ -57,7 +71,7 @@ fun HomeScreen(
         when (state) {
             is HomeViewModel.UiState.Loading -> Box(
                 Modifier.fillMaxSize().padding(paddingValues),
-                contentAlignment = androidx.compose.ui.Alignment.Center
+                contentAlignment = Alignment.Center
             ) {
                 CircularProgressIndicator()
             }
@@ -66,7 +80,7 @@ fun HomeScreen(
                 val msg = (state as HomeViewModel.UiState.Error).message
                 Box(
                     Modifier.fillMaxSize().padding(paddingValues),
-                    contentAlignment = androidx.compose.ui.Alignment.Center
+                    contentAlignment = Alignment.Center
                 ) {
                     Text(msg)
                 }

@@ -35,12 +35,25 @@ GIF działania: <br/>
       <li>Nazwy użytkownika</li>
       <li>E-maila, telefonu, strony</li>
       <li>Firmy i adresu</li>
+      <li>Lokalizacji na mapie</li>
     </ul>
   <li>Wyświetlanie listy zadań (todos) z checkboxem statusu.</li>
   <li>Możliwość powrotu do ekranu głównego.</li>
 </ul>
 GIF działania: 
 <img src="https://github.com/Blurii/PostApp/blob/master/gif-directory/user-gif.gif?raw=true">
+
+### Ekran Ustawień
+<ul>
+  <li>Przycisk przełączający aplikację w tryb ciemny</li>
+</ul>
+
+### Ekran Profilu
+<ul>
+  <li>Dodawania zdjęcia profilowego z pamięci telefonu</li>
+  <li>Zapisywanie danych w aplikacji (Imię, Nazwisko, Zdjęcie)</li>
+  <li>Przytrzymanie przycisku by zresetować dane</li>
+</ul>
 
 ### Obsługa Stanu Ładowania i Błędów
 <ul>
